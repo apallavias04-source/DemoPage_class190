@@ -2,22 +2,57 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Hello, World</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome</title>
 <style>
-  body{margin:0;height:100vh;display:flex;align-items:center;justify-content:center;
-    background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#0f2027);
-    background-size:400% 400%;animation:bg 12s ease infinite;
-    font-family:system-ui,sans-serif;color:#fff;text-align:center}
-  @keyframes bg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-  h1{font-size:3rem;margin:0;letter-spacing:2px}
-  p{opacity:.8;font-size:1.1rem}
-  a{color:#7fdbff}
+  body {
+    margin: 0; min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    font-family: system-ui, sans-serif; background: #0d1117; color: #e6edf3;
+    padding: 20px;
+  }
+  h1 { font-size: 2.5rem; margin-bottom: 30px; }
+  #box {
+    cursor: pointer; padding: 18px 28px; border: 2px dashed #58a6ff;
+    border-radius: 10px; color: #58a6ff; font-size: 1.1rem; font-weight: 600;
+    max-width: 500px; transition: background 0.2s;
+  }
+  #box:hover { background: rgba(88,166,255,0.08); }
+  footer { margin-top: 40px; color: #8b949e; font-size: 0.9rem; }
+  footer a { color: #58a6ff; }
 </style>
 </head>
 <body>
-  <div>
-    <h1>👋 Welcome</h1>
-    <p>This site is live thanks to <a href="https://pages.github.com" target="_blank">GitHub Pages</a>.</p>
-  </div>
+
+  <h1>Welcome Folks</h1>
+
+  <div id="box" onclick="showFact()">🎲 Click for a fun fact</div>
+
+  <footer>
+    This page is created using GitHub Pages.<br>
+    Create your own at
+    <a href="https://docs.github.com/en/pages/getting-started-with-github-pages" target="_blank">docs.github.com/pages</a>.
+  </footer>
+
+<script>
+  const facts = [
+    "The first computer bug was an actual moth found stuck in a relay in 1947.",
+    "The first computer mouse was made of wood.",
+    "More than 90% of the world's currency exists only as digital data.",
+    "The first computer virus was created in 1983 as an experiment, not an attack.",
+    "A single Google search uses more computing power than NASA used for the Apollo 11 moon landing.",
+    "The QWERTY keyboard layout was designed to slow typists down and prevent jams on old typewriters.",
+    "The term 'debugging' predates computers — engineers used it for removing bugs from machinery.",
+    "There are more possible chess games than atoms in the observable universe.",
+    "The first 1GB hard drive, released in 1980, weighed over 500 pounds.",
+    "Wi-Fi doesn't actually stand for anything — it's just a marketing name."
+  ];
+  function showFact() {
+    const box = document.getElementById('box');
+    const fact = facts[Math.floor(Math.random() * facts.length)];
+    box.textContent = "💡 " + fact;
+  }
+</script>
+
 </body>
 </html>
